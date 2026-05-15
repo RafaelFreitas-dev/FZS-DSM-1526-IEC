@@ -1,8 +1,9 @@
 #SINTAXE DE VARIAVEIS
 
-#${{ }}
-#github.actor, event_name, ref, repository, workspace
-#runner.os, status
+# ${{ }}
+# github.actor, event_name, ref, repository, workspace
+# runner.os
+# job.status
 
 name: Variaveis de Ações do Github
 run-name: ${{ github.actor }} esta testando GitHub Actions
@@ -12,4 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "O job disparou um ${{ github.event_name }} evento."
-      - run: echo "Rodando em um ${{ runner.on }} servidor "
+      - run: echo "Rodando em um ${{ runner.on }} servidor."
+      - run: echo "o nome da branch é ${{ github.ref }} do repositorio ${{  github.repository }}"
+
+      - name: check out no repositorio do codigo.
+        uses: actions/checkout@v4
+
+      - run: echo "repositorio ${{ github.repository }} clonado"
+      - name: Lista de arquivos do repositorio
+        run: |
+          ls ${{ github.workflow }}
+          echo O status do job é ${{ job.status }}
+          
