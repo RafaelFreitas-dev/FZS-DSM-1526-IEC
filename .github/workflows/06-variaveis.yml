@@ -5,10 +5,10 @@
 #runner.os, status
 
 name: Variaveis de Ações do Github
-run-time: ${{ github.actor }} esta testando GitHub Actions
+run-name: ${{ github.actor }} esta testando GitHub Actions
 on: [push]
 jobs:
-  Explorando-GitHub-Actions
+  Explorando-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - run: echo "O job disparou um ${{ github.event_name }} evento."
