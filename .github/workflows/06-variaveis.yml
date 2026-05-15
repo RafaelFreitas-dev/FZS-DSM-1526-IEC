@@ -1,0 +1,15 @@
+#SINTAXE DE VARIAVEIS
+
+#${{ }}
+#github.actor, event_name, ref, repository, workspace
+#runner.os, status
+
+name: Variaveis de Ações do Github
+run-time: ${{ github.actor }} esta testando GitHub Actions
+on: [push]
+jobs:
+  Explorando-GitHub-Actions
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "O job disparou um ${{ github.event_name }} evento."
+      - run: echo "Rodando em um ${{ runner.on }} servidor "
